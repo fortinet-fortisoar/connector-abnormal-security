@@ -69,17 +69,17 @@ class AbnormalSecurity:
     def build_params(self, params):
         new_params = {}
         for key, value in params.items():
-            if value is False or value == 0 or value:
-                if key == "mock-data" and isinstance(value, bool):
-                    new_params[key] = "True" if value is True else "False"
-                else:
-                    new_params[key] = value
+            if key == "mock-data":
+                mock_data_value = value or False
+                new_params[key] = "True" if mock_data_value is True else "False"
+            elif value is False or value == 0 or value:
+                new_params[key] = value
         return new_params
 
 
 def check_health_ex(config):
     try:
-        params = {"Mock-Data": "True"}
+        params = {"mock-data": True}
         ob = AbnormalSecurity(config)
         response = ob.api_request("GET", "/threats", params=params)
         return True
@@ -184,14 +184,14 @@ def manage_threat(config, params):
     ob = AbnormalSecurity(config)
     threat_id = params.pop("threatId", "")
     action = params.pop("action", {})
-    return ob.api_request("POST", f"/threats/{threat_id}", data=action)
+    return ob.api_request("POST", f"/threats/{threat_id}", params=params, data=action)
 
 
 def manage_abnormal_case(config, params):
     ob = AbnormalSecurity(config)
     case_id = params.pop("caseId", "")
     action = params.pop("action", {})
-    return ob.api_request("POST", f"/cases/{case_id}", data=action)
+    return ob.api_request("POST", f"/cases/{case_id}", params=params, data=action)
 
 
 def get_case_analysis(config, params):
@@ -203,7 +203,7 @@ def get_case_analysis(config, params):
 def submit_false_positive_report(config, params):
     ob = AbnormalSecurity(config)
     report_data = params.pop("report_data", {})
-    return ob.api_request("POST", f"/detection360/reports", data=report_data)
+    return ob.api_request("POST", f"/detection360/reports", params=params, data=report_data)
 
 
 operations = {
