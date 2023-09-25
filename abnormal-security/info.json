@@ -92,8 +92,8 @@
           "tooltip": "Filters threats based on the source of detection. Default value is all.",
           "description": "Filters threats based on the source of detection. Default value is all.",
           "options": [
-            "all",
-            "advanced"
+            "All",
+            "Advanced"
           ]
         },
         {
@@ -838,7 +838,72 @@
           "value": false
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "id": "",
+        "@id": "",
+        "file": {
+          "id": "",
+          "@id": "",
+          "size": "",
+          "uuid": "",
+          "@type": "",
+          "assignee": "",
+          "filename": "",
+          "metadata": [],
+          "mimeType": "",
+          "thumbnail": "",
+          "uploadDate": ""
+        },
+        "name": "",
+        "type": "",
+        "uuid": "",
+        "@type": "",
+        "tasks": [],
+        "alerts": [],
+        "assets": [],
+        "owners": [],
+        "people": [],
+        "@context": "",
+        "assignee": "",
+        "comments": [],
+        "warrooms": [],
+        "incidents": [],
+        "createDate": "",
+        "createUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "indicators": [],
+        "modifyDate": "",
+        "modifyUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "recordTags": [],
+        "userOwners": [],
+        "workspaces": [],
+        "description": ""
+      }
     },
     {
       "operation": "get_detection_reports",
@@ -858,8 +923,8 @@
           "tooltip": "Specify whether to fetch missed attacks or false positives.",
           "description": "Specify whether to fetch missed attacks or false positives.",
           "options": [
-            "MISSED_ATTACK",
-            "FALSE_POSITIVE"
+            "Missed Attack",
+            "False Positive"
           ]
         },
         {
@@ -894,11 +959,11 @@
           "tooltip": "Only Detection 360° cases with these statuses will be retrieved. Defaults to all statuses.",
           "description": "Only Detection 360° cases with these statuses will be retrieved. Defaults to all statuses.",
           "options": [
-            "UNREVIEWED",
-            "CONTAINING_ATTACK",
-            "IMPROVING_PLATFORM",
-            "RESOLVED",
-            "CORRECTING_JUDGEMENT"
+            "Unreviewed",
+            "Containing Attack",
+            "Improving Platform",
+            "Resolved",
+            "Correcting Judgement"
           ]
         }
       ],
@@ -1045,8 +1110,8 @@
           "tooltip": "Filters threats based on the source of detection. Default value is all.",
           "description": "Filters threats based on the source of detection. Default value is all.",
           "options": [
-            "all",
-            "advanced"
+            "All",
+            "Advanced"
           ]
         },
         {
@@ -1061,7 +1126,72 @@
           "value": false
         }
       ],
-      "output_schema": {}
+      "output_schema": {
+        "id": "",
+        "@id": "",
+        "file": {
+          "id": "",
+          "@id": "",
+          "size": "",
+          "uuid": "",
+          "@type": "",
+          "assignee": "",
+          "filename": "",
+          "metadata": [],
+          "mimeType": "",
+          "thumbnail": "",
+          "uploadDate": ""
+        },
+        "name": "",
+        "type": "",
+        "uuid": "",
+        "@type": "",
+        "tasks": [],
+        "alerts": [],
+        "assets": [],
+        "owners": [],
+        "people": [],
+        "@context": "",
+        "assignee": "",
+        "comments": [],
+        "warrooms": [],
+        "incidents": [],
+        "createDate": "",
+        "createUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "indicators": [],
+        "modifyDate": "",
+        "modifyUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "recordTags": [],
+        "userOwners": [],
+        "workspaces": [],
+        "description": ""
+      }
     },
     {
       "operation": "manage_threat",
@@ -1253,7 +1383,7 @@
           "value": false
         }
       ],
-      "output_schema": {}
+      "output_schema": {"Details": "Report was submitted successfully."}
     }
   ]
 }

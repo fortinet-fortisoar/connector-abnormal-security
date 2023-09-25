@@ -4,8 +4,11 @@
   FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
   Copyright end """
 
+import os, uuid
 from requests import request, exceptions as req_exceptions
 from connectors.core.connector import get_logger, ConnectorError
+from connectors.cyops_utilities.builtins import upload_file_to_cyops, download_file_from_cyops, create_cyops_attachment
+from django.conf import settings
 
 
 logger = get_logger("abnormal-security")
@@ -73,6 +76,23 @@ class AbnormalSecurity:
                 mock_data_value = value or False
                 new_params[key] = "True" if mock_data_value is True else "False"
             elif value is False or value == 0 or value:
+                if key == "inquiry_type":
+                    mapping = {
+                        "Missed Attack": "MISSED_ATTACK",
+                        "False Positive": "FALSE_POSITIVE"
+                    }
+                    value = mapping.get(value, "")
+                elif key == "status":
+                    mapping = {
+                        "Unreviewed": "UNREVIEWED",
+                        "Containing Attack": "CONTAINING_ATTACK",
+                        "Improving Platform": "IMPROVING_PLATFORM",
+                        "Resolved": "RESOLVED",
+                        "Correcting Judgement": "CORRECTING_JUDGEMENT"
+                    }
+                    value = mapping.get(value, "")
+                elif key == "source":
+                    value = value.lower()
                 new_params[key] = value
         return new_params
 
@@ -151,9 +171,19 @@ def get_employee_identity_analysis(config, params):
 
 
 def get_employee_login_info(config, params):
-    ob = AbnormalSecurity(config)
-    email_address = params.pop("emailAddress", "")
-    return ob.api_request("GET", f"/employee/{email_address}/logins", params=params)
+    try:
+        file_name = str(uuid.uuid4()) + ".csv"
+        logger.info(f"File name for csv is: {file_name}")
+        path = os.path.join(settings.TMP_FILE_ROOT, file_name)
+        ob = AbnormalSecurity(config)
+        email_address = params.pop("emailAddress", "")
+        response = ob.api_request("GET", f"/employee/{email_address}/logins", params=params)
+        with open(path, 'wb') as fp:
+            fp.write(response)
+        return upload_file_to_cyops(file_path=file_name, filename=file_name, name=file_name, create_attachment=True)
+    except Exception as err:
+        logger.error(f"Error occurred in generating csv - {str(err)}")
+        raise ConnectorError(err)
 
 
 def get_detection_reports(config, params):
@@ -176,8 +206,18 @@ def check_threat_action_status(config, params):
 
 
 def download_data_from_threat_log(config, params):
-    ob = AbnormalSecurity(config)
-    return ob.api_request("GET", f"/threats_export/csv", params=params)
+    try:
+        file_name = str(uuid.uuid4()) + ".csv"
+        logger.info(f"File name for csv is: {file_name}")
+        path = os.path.join(settings.TMP_FILE_ROOT, file_name)
+        ob = AbnormalSecurity(config)
+        response = ob.api_request("GET", f"/threats_export/csv", params=params)
+        with open(path, 'wb') as fp:
+            fp.write(response)
+        return upload_file_to_cyops(file_path=file_name, filename=file_name, name=file_name, create_attachment=True)
+    except Exception as err:
+        logger.error(f"Error occurred in generating csv - {str(err)}")
+        raise ConnectorError(err)
 
 
 def manage_threat(config, params):
@@ -203,7 +243,8 @@ def get_case_analysis(config, params):
 def submit_false_positive_report(config, params):
     ob = AbnormalSecurity(config)
     report_data = params.pop("report_data", {})
-    return ob.api_request("POST", f"/detection360/reports", params=params, data=report_data)
+    response = ob.api_request("POST", f"/detection360/reports", params=params, data=report_data)
+    return {"Details": "Report was submitted successfully."}
 
 
 operations = {
