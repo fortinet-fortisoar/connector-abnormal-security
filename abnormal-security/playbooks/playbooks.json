@@ -1,0 +1,1476 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "b312593b-8154-4523-9b77-15ec6ef0d141",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "30d8fdb0-404b-4d09-a6f8-56e555ddfbb8",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "da7f70b5-3dc8-4efb-ab50-4004d8687749",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "1aa51c5e-38b2-4dd8-9b6f-530b0d0e264c",
+              "@type": "WorkflowStep",
+              "name": "Get Threats",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "filter": "",
+                  "pageSize": "",
+                  "pageNumber": "",
+                  "source": "",
+                  "sender": "",
+                  "recipient": "",
+                  "subject": "",
+                  "topic": "",
+                  "attackType": "",
+                  "attackVector": "",
+                  "attackStrategy": "",
+                  "impersonatedParty": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_threats",
+                "operationTitle": "Get Threats"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves detailed list of threats based on the parameters that you have specified",
+          "name": "Get Threats",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/da7f70b5-3dc8-4efb-ab50-4004d8687749",
+          "routes": [
+            {
+              "uuid": "33f73247-e46a-4d36-8c59-c55641c2c3e4",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Threats",
+              "sourceStep": "/api/3/workflow_steps/da7f70b5-3dc8-4efb-ab50-4004d8687749",
+              "targetStep": "/api/3/workflow_steps/1aa51c5e-38b2-4dd8-9b6f-530b0d0e264c"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ab95f974-d734-4f1e-952b-f998c948e6ef",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "8dbf8bc1-6295-4ac0-8035-6031b1f09067",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "5627c9d1-4250-4d30-be77-201d0c85baa7",
+              "@type": "WorkflowStep",
+              "name": "Get Threat Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "pageSize": "",
+                  "pageNumber": "",
+                  "threatId": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_threat_details",
+                "operationTitle": "Get Threat Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieves details of threat based on the parameters that you have specified.",
+          "name": "Get Threat Details",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/8dbf8bc1-6295-4ac0-8035-6031b1f09067",
+          "routes": [
+            {
+              "uuid": "03072b77-42c7-44f7-8a6a-a04752ffbe05",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Threat Details",
+              "sourceStep": "/api/3/workflow_steps/8dbf8bc1-6295-4ac0-8035-6031b1f09067",
+              "targetStep": "/api/3/workflow_steps/5627c9d1-4250-4d30-be77-201d0c85baa7"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "7f2e399f-3b14-4176-b499-4a8d80429302",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "c772c7d0-8705-4b62-972f-e0d12d73d76a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "a9a7dabc-9624-4e35-a005-4bf235833683",
+              "@type": "WorkflowStep",
+              "name": "Get Threat Links",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "threatId": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_threat_links",
+                "operationTitle": "Get Threat Links"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Get information of links in a threat campaign.",
+          "name": "Get Threat Links",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c772c7d0-8705-4b62-972f-e0d12d73d76a",
+          "routes": [
+            {
+              "uuid": "96340eae-d119-498f-85da-54a3a820daba",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Threat Links",
+              "sourceStep": "/api/3/workflow_steps/c772c7d0-8705-4b62-972f-e0d12d73d76a",
+              "targetStep": "/api/3/workflow_steps/a9a7dabc-9624-4e35-a005-4bf235833683"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "b067a6e3-f059-4fb5-aa6a-68f7694931ac",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "61d52b84-5dc1-449a-9ee7-4d58041ead2d",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "35651097-4dd4-4eb7-923d-775121f6a0a0",
+              "@type": "WorkflowStep",
+              "name": "Get Threat Attachments",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "threatId": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_threat_attachments",
+                "operationTitle": "Get Threat Attachments"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Get attachment details of a threat campaign.",
+          "name": "Get Threat Attachments",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/61d52b84-5dc1-449a-9ee7-4d58041ead2d",
+          "routes": [
+            {
+              "uuid": "974fe385-e6a0-4327-89d1-c923822f662c",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Threat Attachments",
+              "sourceStep": "/api/3/workflow_steps/61d52b84-5dc1-449a-9ee7-4d58041ead2d",
+              "targetStep": "/api/3/workflow_steps/35651097-4dd4-4eb7-923d-775121f6a0a0"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "c4a2fe4d-7fd0-41b4-bc2a-be82a91cee24",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "7a25be96-3a90-4321-ba3a-5ff4a22687f2",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "de970eac-d039-4eba-8950-6761e1237304",
+              "@type": "WorkflowStep",
+              "name": "Get Cases",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "filter": "",
+                  "pageSize": "",
+                  "pageNumber": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_cases",
+                "operationTitle": "Get Cases"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Get a list of Abnormal cases identified by Abnormal Security.",
+          "name": "Get Cases",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7a25be96-3a90-4321-ba3a-5ff4a22687f2",
+          "routes": [
+            {
+              "uuid": "1fffecc4-d123-4c9d-bb2f-cb8367f72bac",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Cases",
+              "sourceStep": "/api/3/workflow_steps/7a25be96-3a90-4321-ba3a-5ff4a22687f2",
+              "targetStep": "/api/3/workflow_steps/de970eac-d039-4eba-8950-6761e1237304"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "059eba80-e42f-4429-ba06-4f7b2eb6a2f3",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "e50d1b4f-34c7-48a1-9bf9-dc227a269f61",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "89c018bc-e7b0-4b39-8b46-18ca3f803b4b",
+              "@type": "WorkflowStep",
+              "name": "Get Case Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "caseId": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_case_details",
+                "operationTitle": "Get Case Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Get details of an Abnormal case.",
+          "name": "Get Case Details",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e50d1b4f-34c7-48a1-9bf9-dc227a269f61",
+          "routes": [
+            {
+              "uuid": "f10f27e1-f60d-424f-8c74-356ea634e3b3",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Case Details",
+              "sourceStep": "/api/3/workflow_steps/e50d1b4f-34c7-48a1-9bf9-dc227a269f61",
+              "targetStep": "/api/3/workflow_steps/89c018bc-e7b0-4b39-8b46-18ca3f803b4b"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "7cfec997-2645-4c19-a05a-b83d14f9cd3c",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "7499f769-53c9-462d-bb6c-1a0b2146b21c",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "571166d9-e193-47ec-a16d-3325072a65be",
+              "@type": "WorkflowStep",
+              "name": "Get Message Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "messageId": ""
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_message_details",
+                "operationTitle": "Get Message Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Get details of the remediation history for a threat log message.",
+          "name": "Get Message Details",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7499f769-53c9-462d-bb6c-1a0b2146b21c",
+          "routes": [
+            {
+              "uuid": "9d356823-3387-4ce5-9048-b015099c9d70",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Message Details",
+              "sourceStep": "/api/3/workflow_steps/7499f769-53c9-462d-bb6c-1a0b2146b21c",
+              "targetStep": "/api/3/workflow_steps/571166d9-e193-47ec-a16d-3325072a65be"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "732b9c6f-8726-4d18-9872-a2321cbe5564",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "725c0c6d-0498-4fcb-a11b-5bd653a7480a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "11b60aa9-9721-47ca-afed-cabb8c4fece6",
+              "@type": "WorkflowStep",
+              "name": "Get Abuse Campaigns",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "filter": "",
+                  "sender": "",
+                  "recipient": "",
+                  "subject": "",
+                  "reporter": "",
+                  "attackType": "",
+                  "threatType": "",
+                  "pageSize": "",
+                  "pageNumber": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_abuse_campaigns",
+                "operationTitle": "Get Abuse Campaigns"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Get a list of campaigns submitted to Abuse Mailbox.",
+          "name": "Get Abuse Campaigns",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/725c0c6d-0498-4fcb-a11b-5bd653a7480a",
+          "routes": [
+            {
+              "uuid": "d3e168b6-04dc-4873-9642-d060489f8969",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Abuse Campaigns",
+              "sourceStep": "/api/3/workflow_steps/725c0c6d-0498-4fcb-a11b-5bd653a7480a",
+              "targetStep": "/api/3/workflow_steps/11b60aa9-9721-47ca-afed-cabb8c4fece6"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "87f93603-ff0a-486a-9262-a6c78c5da8b1",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "1df50da2-95d4-49a2-a8c2-8f9549165279",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "3cef912e-2ed2-4f40-a5d9-23486ead8c09",
+              "@type": "WorkflowStep",
+              "name": "Get Abuse Campaign Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "campaignId": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_abuse_campaign_details",
+                "operationTitle": "Get Abuse Campaign Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Get details of an Abuse Mailbox campaign.",
+          "name": "Get Abuse Campaign Details",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/1df50da2-95d4-49a2-a8c2-8f9549165279",
+          "routes": [
+            {
+              "uuid": "6f2d4ffd-c30f-4d3e-b9d0-fb1af7a57dd5",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Abuse Campaign Details",
+              "sourceStep": "/api/3/workflow_steps/1df50da2-95d4-49a2-a8c2-8f9549165279",
+              "targetStep": "/api/3/workflow_steps/3cef912e-2ed2-4f40-a5d9-23486ead8c09"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "efd16423-b155-4c2a-bcd3-c83cd7a759bc",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "e9ac2f79-30e7-41e9-8f1a-266891896d36",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "8ff592ca-711a-42ce-bf40-ee0f634d092a",
+              "@type": "WorkflowStep",
+              "name": "Get Employee Information",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "emailAddress": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_employee_info",
+                "operationTitle": "Get Employee Information"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve employee information based on the email address that you have specified.",
+          "name": "Get Employee Information",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e9ac2f79-30e7-41e9-8f1a-266891896d36",
+          "routes": [
+            {
+              "uuid": "d3548f4f-3694-4cdf-bd40-1d73df406c38",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Employee Information",
+              "sourceStep": "/api/3/workflow_steps/e9ac2f79-30e7-41e9-8f1a-266891896d36",
+              "targetStep": "/api/3/workflow_steps/8ff592ca-711a-42ce-bf40-ee0f634d092a"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "f3da3fe8-7cb6-46d7-8155-e23f2ec5b0fb",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "0b048539-f67f-4cc5-b86e-3cbb0d00d393",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "2a1531eb-f608-4b86-aae6-352e7a4c77d6",
+              "@type": "WorkflowStep",
+              "name": "Get Employee Identity Analysis",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "emailAddress": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_employee_identity_analysis",
+                "operationTitle": "Get Employee Identity Analysis"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve employee identity analysis (Genome) data based on the email address that you have specified.",
+          "name": "Get Employee Identity Analysis",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/0b048539-f67f-4cc5-b86e-3cbb0d00d393",
+          "routes": [
+            {
+              "uuid": "fa00060e-4f63-40ae-82be-9f509ccd1c8b",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Employee Identity Analysis",
+              "sourceStep": "/api/3/workflow_steps/0b048539-f67f-4cc5-b86e-3cbb0d00d393",
+              "targetStep": "/api/3/workflow_steps/2a1531eb-f608-4b86-aae6-352e7a4c77d6"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "a729c92e-4255-4f0e-9f92-fec67b44083b",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "ad9a2c44-ce9f-4a6e-89ba-6c0248171a02",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "82bd3fbb-9d27-4626-aed8-4b8f340f0128",
+              "@type": "WorkflowStep",
+              "name": "Get Employee Login Information",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "emailAddress": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_employee_login_info",
+                "operationTitle": "Get Employee Login Information"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Get employee login information for last 30 days in csv format.",
+          "name": "Get Employee Login Information",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ad9a2c44-ce9f-4a6e-89ba-6c0248171a02",
+          "routes": [
+            {
+              "uuid": "8868bed2-124b-48fe-9d58-cb6c4ea28de3",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Employee Login Information",
+              "sourceStep": "/api/3/workflow_steps/ad9a2c44-ce9f-4a6e-89ba-6c0248171a02",
+              "targetStep": "/api/3/workflow_steps/82bd3fbb-9d27-4626-aed8-4b8f340f0128"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "2c01484c-414d-47da-9788-7814dfcab830",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "ed490469-a984-43be-840f-88360a4f1850",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "f43c46ce-7e28-4abb-a9b7-eab9237166c2",
+              "@type": "WorkflowStep",
+              "name": "Get Detection Reports",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "inquiry_type": "",
+                  "start": "",
+                  "end": "",
+                  "status": ""
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_detection_reports",
+                "operationTitle": "Get Detection Reports"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Get a list of Detection 360\u00b0 reports that you have submitted and view corresponding details for each case, including report summaries, statuses, message analyses, and more.",
+          "name": "Get Detection Reports",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ed490469-a984-43be-840f-88360a4f1850",
+          "routes": [
+            {
+              "uuid": "b14beb4f-2742-4b60-963f-f67e8eadab2b",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Detection Reports",
+              "sourceStep": "/api/3/workflow_steps/ed490469-a984-43be-840f-88360a4f1850",
+              "targetStep": "/api/3/workflow_steps/f43c46ce-7e28-4abb-a9b7-eab9237166c2"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "6d85cf42-30d4-4566-9f5f-beccdadc29a5",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "7c6dea5d-db75-4ee7-8202-40a93542882a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "94e5f410-93f6-4a5e-9b68-860b44f50d87",
+              "@type": "WorkflowStep",
+              "name": "Check Case Action Status",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "caseId": "",
+                  "actionId": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "check_case_action_status",
+                "operationTitle": "Check Case Action Status"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Check the status of an action requested on a case.",
+          "name": "Check Case Action Status",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7c6dea5d-db75-4ee7-8202-40a93542882a",
+          "routes": [
+            {
+              "uuid": "a5f362ec-48dd-4ee2-b4c6-d4b562b5acbe",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Check Case Action Status",
+              "sourceStep": "/api/3/workflow_steps/7c6dea5d-db75-4ee7-8202-40a93542882a",
+              "targetStep": "/api/3/workflow_steps/94e5f410-93f6-4a5e-9b68-860b44f50d87"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "e08b600d-5f5f-49e5-9f16-265ce138dff7",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "2d870e43-f87b-4494-be86-62258a33d43d",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "40e06004-c03e-4116-b9ca-716730e746fa",
+              "@type": "WorkflowStep",
+              "name": "Check Threat Action Status",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "threatId": "",
+                  "actionId": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "check_threat_action_status",
+                "operationTitle": "Check Threat Action Status"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Check the status of an action requested on a threat.",
+          "name": "Check Threat Action Status",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/2d870e43-f87b-4494-be86-62258a33d43d",
+          "routes": [
+            {
+              "uuid": "3cfd834c-4994-4736-aa54-2509458954d2",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Check Threat Action Status",
+              "sourceStep": "/api/3/workflow_steps/2d870e43-f87b-4494-be86-62258a33d43d",
+              "targetStep": "/api/3/workflow_steps/40e06004-c03e-4116-b9ca-716730e746fa"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "4c04cf30-6854-40bf-93fa-26d526fac3e8",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "81671ef7-435b-4f12-aad8-cc10a70cb2e4",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "18cdae17-3182-40aa-8f0e-22415912e959",
+              "@type": "WorkflowStep",
+              "name": "Download Data from Threat Log",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "filter": "",
+                  "source": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "download_data_from_threat_log",
+                "operationTitle": "Download Data from Threat Log"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Download data from Threat Log in .csv format.",
+          "name": "Download Data from Threat Log",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/81671ef7-435b-4f12-aad8-cc10a70cb2e4",
+          "routes": [
+            {
+              "uuid": "6e721f9c-03b2-4bc9-a4f3-aec96af1470b",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Download Data from Threat Log",
+              "sourceStep": "/api/3/workflow_steps/81671ef7-435b-4f12-aad8-cc10a70cb2e4",
+              "targetStep": "/api/3/workflow_steps/18cdae17-3182-40aa-8f0e-22415912e959"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "a8dca360-1f33-4959-95cd-b161fc1d3558",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "97e2d742-5652-4da2-8409-327af254ba39",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "15c40c3e-742e-40cc-9874-206f511ab7c0",
+              "@type": "WorkflowStep",
+              "name": "Manage Threat",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "threatId": "",
+                  "action": {
+                    "action": "remediate"
+                  },
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "manage_threat",
+                "operationTitle": "Manage Threat"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Manage a Threat identified by Abnormal Security. Use this to remediate or unremediate a threat.",
+          "name": "Manage Threat",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/97e2d742-5652-4da2-8409-327af254ba39",
+          "routes": [
+            {
+              "uuid": "fe8998fd-15e6-49ed-bdeb-f51b3fbba5ab",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Manage Threat",
+              "sourceStep": "/api/3/workflow_steps/97e2d742-5652-4da2-8409-327af254ba39",
+              "targetStep": "/api/3/workflow_steps/15c40c3e-742e-40cc-9874-206f511ab7c0"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "f06a00e3-7089-43ac-9b84-a2cf7e674a15",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "4b5be278-f393-426d-bd34-40d1c037fecf",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "8a8f9d3a-07f3-4dcd-8c69-1d31f0837c40",
+              "@type": "WorkflowStep",
+              "name": "Manage Abnormal Case",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "caseId": "",
+                  "action": {
+                    "action": "action_required"
+                  },
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "manage_abnormal_case",
+                "operationTitle": "Manage Abnormal Case"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Manage an Abnormal Case. Use this to acknowledge or take another remediation action on a case.",
+          "name": "Manage Abnormal Case",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/4b5be278-f393-426d-bd34-40d1c037fecf",
+          "routes": [
+            {
+              "uuid": "708c7784-9d36-4f18-8832-348f03ca4acd",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Manage Abnormal Case",
+              "sourceStep": "/api/3/workflow_steps/4b5be278-f393-426d-bd34-40d1c037fecf",
+              "targetStep": "/api/3/workflow_steps/8a8f9d3a-07f3-4dcd-8c69-1d31f0837c40"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "f2ec93c0-3a80-4d2a-8f88-f8063fd4a80c",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "67319910-aa31-4975-88d8-7ba799e930a2",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "9dba072c-a761-4d39-94dc-0e3f645c00f3",
+              "@type": "WorkflowStep",
+              "name": "Get Case Analysis",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "caseId": "",
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "get_case_analysis",
+                "operationTitle": "Get Case Analysis"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Provides the analysis and timeline details of a case.",
+          "name": "Get Case Analysis",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/67319910-aa31-4975-88d8-7ba799e930a2",
+          "routes": [
+            {
+              "uuid": "b2cb4fd2-3ad8-453d-b200-5d7e0bb3e5c5",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Case Analysis",
+              "sourceStep": "/api/3/workflow_steps/67319910-aa31-4975-88d8-7ba799e930a2",
+              "targetStep": "/api/3/workflow_steps/9dba072c-a761-4d39-94dc-0e3f645c00f3"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "9f22be61-4faf-4bde-852f-b1fba072ea4c",
+          "collection": "/api/3/workflow_collections/b312593b-8154-4523-9b77-15ec6ef0d141",
+          "steps": [
+            {
+              "uuid": "6b0aca42-8982-4d9f-a1a2-5ad85c1ad352",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "3a0fd28c-4c9f-42e0-af1d-72b539d3dc4d",
+              "@type": "WorkflowStep",
+              "name": "Submit a Missed Attack or False Positive Report",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Abnormal Security",
+                "config": "''",
+                "params": {
+                  "report_data": {
+                    "report_type": "false-positive",
+                    "received_date": "2020/02/01",
+                    "description": "Alice reported this email was missing from their inbox.",
+                    "portal_link": "https://portal.abnormalsecurity.com/home/threat-center/remediation-history/1234567890"
+                  },
+                  "mock-data": false
+                },
+                "version": "1.0.0",
+                "connector": "abnormal-security",
+                "operation": "submit_false_positive_report",
+                "operationTitle": "Submit a Missed Attack or False Positive Report"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Use this to report a missed attack or a false positive judgement by Abnormal Security. We use this data to improve our models, and also give customers transparency into the frequency of Missed Attacks and False Positives.",
+          "name": "Submit a Missed Attack or False Positive Report",
+          "tag": "#Abnormal Security",
+          "recordTags": [
+            "Abnormal",
+            "abnormal-security"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6b0aca42-8982-4d9f-a1a2-5ad85c1ad352",
+          "routes": [
+            {
+              "uuid": "1588c6f3-4ac6-4627-965f-54d079aec161",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Submit a Missed Attack or False Positive Report",
+              "sourceStep": "/api/3/workflow_steps/6b0aca42-8982-4d9f-a1a2-5ad85c1ad352",
+              "targetStep": "/api/3/workflow_steps/3a0fd28c-4c9f-42e0-af1d-72b539d3dc4d"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - Abnormal Security - 1.0.0",
+      "description": "Abnormal Security helps to prevent email and email-like attacks, automate your security operations and reduce your total spend with one extensible platform.",
+      "visible": true,
+      "recordTags": [
+        "Abnormal",
+        "abnormal-security"
+      ]
+    }
+  ]
+}

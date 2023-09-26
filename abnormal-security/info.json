@@ -1,0 +1,1389 @@
+{
+  "name": "abnormal-security",
+  "label": "Abnormal Security",
+  "description": "Abnormal Security helps to prevent email and email-like attacks, automate your security operations and reduce your total spend with one extensible platform.",
+  "publisher": "Fortinet",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "version": "1.0.0",
+  "category": "Email Security",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "description": "Specify the URL of the Abnormal Security server to connect and perform the automated operations."
+      },
+      {
+        "title": "Access Token",
+        "name": "access_token",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "description": "Specify the access token used to access the Abnormal Security server to connect and perform the automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True.",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_threats",
+      "annotation": "get_threats",
+      "category": "investigation",
+      "title": "Get Threats",
+      "description": "Retrieves detailed list of threats based on the parameters that you have specified",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Filter",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "filter",
+          "tooltip": "Specify the filter, currently the only key that is supported is receivedTime. At least 1 of gte/lte must be specified, with a datetime string following the YYYY-MM-DDTHH:MM:SSZ format.",
+          "description": "Specify the filter, currently the only key that is supported is receivedTime. At least 1 of gte/lte must be specified, with a datetime string following the YYYY-MM-DDTHH:MM:SSZ format.",
+          "placeholder": "receivedTime gte 2020-01-01T01:01:01Z lte 2021-12-01T01:01:01Z"
+        },
+        {
+          "title": "Source",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "name": "source",
+          "tooltip": "Filters threats based on the source of detection. Default value is all.",
+          "description": "Filters threats based on the source of detection. Default value is all.",
+          "options": [
+            "All",
+            "Advanced"
+          ]
+        },
+        {
+          "title": "Sender",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "sender",
+          "tooltip": "Filters threats based on the name or email address of the sender.",
+          "description": "Filters threats based on the name or email address of the sender."
+        },
+        {
+          "title": "Recipient",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "recipient",
+          "tooltip": "Filters threats based on the name or email address of the recipient.",
+          "description": "Filters threats based on the name or email address of the recipient."
+        },
+        {
+          "title": "Subject",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "subject",
+          "tooltip": "Filters threats based on the email subject.",
+          "description": "Filters threats based on the email subject."
+        },
+        {
+          "title": "Topic",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "name": "topic",
+          "tooltip": "Filters threats based on the topic of email contents.",
+          "description": "Filters threats based on the topic of email contents.",
+          "options": [
+            "Billing Account Update",
+            "Covid-19 Related Attack",
+            "Cryptocurrency",
+            "Invoice",
+            "Invoice Inquiry"
+          ]
+        },
+        {
+          "title": "Attack Type",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "name": "attackType",
+          "tooltip": "Filters threats based on the type of attack.",
+          "description": "Filters threats based on the type of attack.",
+          "options": [
+            "Internal-to-Internal Attacks (Email Account Takeover)",
+            "Spam",
+            "Reconnaissance",
+            "Scam",
+            "Social Engineering (BEC)",
+            "Phishing: Credential",
+            "Invoice/Payment Fraud (BEC)",
+            "Malware",
+            "Extortion",
+            "Phishing: Sensitive Data",
+            "Other"
+          ]
+        },
+        {
+          "title": "Attack Vector",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "name": "attackVector",
+          "tooltip": "Filters threats based on the attack vector.",
+          "description": "Filters threats based on the attack vector.",
+          "options": [
+            "Link",
+            "Attachment",
+            "Text",
+            "Others",
+            "Attachment with Zipped File"
+          ]
+        },
+        {
+          "title": "Attack Strategy",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "name": "attackStrategy",
+          "tooltip": "Filters threats based on the attack strategy.",
+          "description": "Filters threats based on the attack strategy.",
+          "options": [
+            "Name Impersonation",
+            "Internal Compromised Email Account",
+            "External Compromised Email Account",
+            "Spoofed Email",
+            "Unknown Sender",
+            "Covid 19 Related Attack"
+          ]
+        },
+        {
+          "title": "Impersonated Party",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "name": "impersonatedParty",
+          "tooltip": "Filters threats based on the impersonated party.",
+          "description": "Filters threats based on the impersonated party.",
+          "options": [
+            "VIP",
+            "Assistants",
+            "Employee (other)",
+            "Brand",
+            "Known Partners",
+            "Automated System (Internal)",
+            "Automated System (External)",
+            "Unknown Partner",
+            "None / Others"
+          ]
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        },
+        {
+          "title": "Page Size",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageSize",
+          "tooltip": "Specify the number of threats on each page. Each page of data will have at most pageSize threats. Has no effect if filter is not specified. Default value is 100.",
+          "description": "Specify the number of threats on each page. Each page of data will have at most pageSize threats. Has no effect if filter is not specified. Default value is 100."
+        },
+        {
+          "title": "Page Number",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageNumber",
+          "tooltip": "1-indexed page number to get a particular page of threats. Has no effect if filter is not specified. Default value is 1.",
+          "description": "1-indexed page number to get a particular page of threats. Has no effect if filter is not specified. Default value is 1."
+        }
+      ],
+      "output_schema": {
+        "threats": [],
+        "pageNumber": "",
+        "nextPageNumber": ""
+      }
+    },
+    {
+      "operation": "get_threat_details",
+      "annotation": "get_threat_details",
+      "category": "investigation",
+      "title": "Get Threat Details",
+      "description": "Retrieves details of threat based on the parameters that you have specified.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Threat ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "threatId",
+          "tooltip": "Specify the UUID of the threat whose details you want to retrieve from the Abnormal Security server.",
+          "description": "Specify the UUID of the threat whose details you want to retrieve from the Abnormal Security server."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        },
+        {
+          "title": "Page Size",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageSize",
+          "tooltip": "Number of messages corresponding to threat in each page. Each page of data will have at most pageSize message. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 100.",
+          "description": "Number of messages corresponding to threat in each page. Each page of data will have at most pageSize message. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 100."
+        },
+        {
+          "title": "Page Number",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageNumber",
+          "tooltip": "1-indexed page number to get a particular page of threat messages. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 1.",
+          "description": "1-indexed page number to get a particular page of threat messages. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 1."
+        }
+      ],
+      "output_schema": {
+        "threatId": "",
+        "messages": [
+          {
+            "threatId": "",
+            "abxMessageId": "",
+            "abxPortalUrl": "",
+            "subject": "",
+            "fromAddress": "",
+            "fromName": "",
+            "senderDomain": "",
+            "toAddresses": "",
+            "recipientAddress": "",
+            "receivedTime": "",
+            "sentTime": "",
+            "internetMessageId": "",
+            "remediationStatus": "",
+            "attackType": "",
+            "attackStrategy": "",
+            "returnPath": "",
+            "replyToEmails": [],
+            "ccEmails": [],
+            "senderIpAddress": "",
+            "impersonatedParty": "",
+            "attackVector": "",
+            "attachmentNames": [],
+            "attachmentCount": "",
+            "urls": [],
+            "urlCount": "",
+            "summaryInsights": [],
+            "remediationTimestamp": "",
+            "isRead": "",
+            "attackedParty": "",
+            "autoRemediated": "",
+            "postRemediated": ""
+          }
+        ],
+        "pageNumber": "",
+        "nextPageNumber": ""
+      }
+    },
+    {
+      "operation": "get_threat_links",
+      "annotation": "get_threat_links",
+      "category": "investigation",
+      "title": "Get Threat Links",
+      "description": "Get information of links in a threat campaign.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Threat ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "threatId",
+          "tooltip": "Specify the UUID of the threat whose links you want to retrieve from the Abnormal Security server.",
+          "description": "Specify the UUID of the threat whose links you want to retrieve from the Abnormal Security server."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "threats": [
+          {
+            "abxMessageId": "",
+            "domainLink": "",
+            "linkType": "",
+            "source": "",
+            "displayText": "",
+            "linkUrl": ""
+          }
+        ]
+      }
+    },
+    {
+      "operation": "get_threat_attachments",
+      "annotation": "get_threat_attachments",
+      "category": "investigation",
+      "title": "Get Threat Attachments",
+      "description": "Get attachment details of a threat campaign.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Threat ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "threatId",
+          "tooltip": "Specify the UUID of the threat whose attachment details you want to retrieve from the Abnormal Security server.",
+          "description": "Specify the UUID of the threat whose attachment details you want to retrieve from the Abnormal Security server."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "threats": [
+          {
+            "abxMessageId": "",
+            "attachmentName": ""
+          }
+        ]
+      }
+    },
+    {
+      "operation": "get_cases",
+      "annotation": "get_cases",
+      "category": "investigation",
+      "title": "Get Cases",
+      "description": "Get a list of Abnormal cases identified by Abnormal Security.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Filter",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "filter",
+          "tooltip": "Specify the filter. At least 1 of gte/lte must be specified, with a datetime string following the YYYY-MM-DDTHH:MM:SSZ format.",
+          "description": "Specify the filter. At least 1 of gte/lte must be specified, with a datetime string following the YYYY-MM-DDTHH:MM:SSZ format.",
+          "placeholder": "lastModifiedTime gte 2020-01-01T01:01:01Z lte 2021-12-01T01:01:01Z"
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        },
+        {
+          "title": "Page Size",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageSize",
+          "tooltip": "Specify the number of cases on each page. Each page of data will have at most pageSize cases. Has no effect if filter is not specified. Default value is 100.",
+          "description": "Specify the number of cases on each page. Each page of data will have at most pageSize cases. Has no effect if filter is not specified. Default value is 100."
+        },
+        {
+          "title": "Page Number",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageNumber",
+          "tooltip": "1-indexed page number to get a particular page of cases. Has no effect if filter is not specified. Default value is 1.",
+          "description": "1-indexed page number to get a particular page of cases. Has no effect if filter is not specified. Default value is 1."
+        }
+      ],
+      "output_schema": {
+        "cases": [
+          {
+            "caseId": "",
+            "severity": ""
+          }
+        ],
+        "pageNumber": "",
+        "nextPageNumber": ""
+      }
+    },
+    {
+      "operation": "get_case_details",
+      "annotation": "get_case_details",
+      "category": "investigation",
+      "title": "Get Case Details",
+      "description": "Get details of an Abnormal case.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Case ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "caseId",
+          "tooltip": "Specify the case ID whose details you want to retrieve from Abnormal Security server.",
+          "description": "Specify the case ID whose details you want to retrieve from Abnormal Security server."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "caseId": "",
+        "severity": "",
+        "affectedEmployee": "",
+        "firstObserved": "",
+        "threatIds": []
+      }
+    },
+    {
+      "operation": "get_message_details",
+      "annotation": "get_message_details",
+      "category": "investigation",
+      "title": "Get Message Details",
+      "description": "Get details of the remediation history for a threat log message.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Message ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "messageId",
+          "tooltip": "Specify the ABX Message Id of a message.",
+          "description": "Specify the ABX Message Id of a message."
+        }
+      ],
+      "output_schema": {
+        "remediation_history": {
+          "Auto-Remediated": ""
+        },
+        "folder_locations": []
+      }
+    },
+    {
+      "operation": "get_abuse_campaigns",
+      "annotation": "get_abuse_campaigns",
+      "category": "investigation",
+      "title": "Get Abuse Campaigns",
+      "description": "Get a list of campaigns submitted to Abuse Mailbox.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Filter",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "filter",
+          "tooltip": "Specify the filter, currently the only key lastReportedTime is supported. At least one of gte/lte must be specified, with a datetime string following the YYYY-MM-DDTHH:MM:SSZ format. Do note that provided filter time is in UTC.",
+          "description": "Specify the filter, currently the only key lastReportedTime is supported. At least one of gte/lte must be specified, with a datetime string following the YYYY-MM-DDTHH:MM:SSZ format. Do note that provided filter time is in UTC.",
+          "placeholder": "lastReportedTime gte 2020-01-01T00:00:00Z lte 2021-12-01T00:00:00Z"
+        },
+        {
+          "title": "Sender",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "sender",
+          "tooltip": "Filters threats based on the name or email address of the sender.",
+          "description": "Filters threats based on the name or email address of the sender."
+        },
+        {
+          "title": "Recipient",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "recipient",
+          "tooltip": "Filters threats based on the name or email address of the recipient.",
+          "description": "Filters threats based on the name or email address of the recipient."
+        },
+        {
+          "title": "Subject",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "subject",
+          "tooltip": "Filters threats based on the email subject.",
+          "description": "Filters threats based on the email subject."
+        },
+        {
+          "title": "Reporter",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "reporter",
+          "tooltip": "Filters threats based on the reporter name or email address.",
+          "description": "Filters threats based on the reporter name or email address."
+        },
+        {
+          "title": "Attack Type",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "name": "attackType",
+          "tooltip": "Filters threats based on the type of attack.",
+          "description": "Filters threats based on the type of attack.",
+          "options": [
+            "Internal-to-Internal Attacks (Email Account Takeover)",
+            "Spam",
+            "Reconnaissance",
+            "Scam",
+            "Social Engineering (BEC)",
+            "Phishing: Credential",
+            "Invoice/Payment Fraud (BEC)",
+            "Malware",
+            "Extortion",
+            "Phishing: Sensitive Data",
+            "Other"
+          ]
+        },
+        {
+          "title": "Threat Type",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "name": "threatType",
+          "tooltip": "Filters threats based on the type of threat.",
+          "description": "Filters threats based on the type of threat.",
+          "options": [
+            "All",
+            "Malicious",
+            "Safe",
+            "Spam"
+          ]
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        },
+        {
+          "title": "Page Size",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageSize",
+          "tooltip": "Specify the number of abuse campaigns shown on each page. Each page of data will have at most page size abuse campaign IDs. Default value is 100.",
+          "description": "Specify the number of abuse campaigns shown on each page. Each page of data will have at most page size abuse campaign IDs. Default value is 100."
+        },
+        {
+          "title": "Page Number",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageNumber",
+          "tooltip": "1-indexed page number to get a particular page of abuse campaigns. Has no effect if filter is not specified. Default value is 1.",
+          "description": "1-indexed page number to get a particular page of abuse campaigns. Has no effect if filter is not specified. Default value is 1."
+        }
+      ],
+      "output_schema": {
+        "campaigns": [
+          {
+            "campaignID": ""
+          }
+        ],
+        "pageNumber": "",
+        "nextPageNumber": ""
+      }
+    },
+    {
+      "operation": "get_abuse_campaign_details",
+      "annotation": "get_abuse_campaign_details",
+      "category": "investigation",
+      "title": "Get Abuse Campaign Details",
+      "description": "Get details of an Abuse Mailbox campaign.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Campaign ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "campaignId",
+          "tooltip": "Specify the UUID of abuse campaign whose details you want to retrieve from Abnormal Security server.",
+          "description": "Specify the UUID of abuse campaign whose details you want to retrieve from Abnormal Security server."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "campaignId": "",
+        "firstReported": "",
+        "lastReported": "",
+        "messageId": "",
+        "subject": "",
+        "fromName": "",
+        "fromAddress": "",
+        "recipientName": "",
+        "recipientAddress": "",
+        "judgementStatus": "",
+        "overallStatus": "",
+        "attackType": ""
+      }
+    },
+    {
+      "operation": "get_employee_info",
+      "annotation": "get_employee_info",
+      "category": "investigation",
+      "title": "Get Employee Information",
+      "description": "Retrieve employee information based on the email address that you have specified.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Email Address",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "emailAddress",
+          "tooltip": "Specify the email address of the employee whose information you want to retrieve from the Abnormal Security server.",
+          "description": "Specify the email address of the employee whose information you want to retrieve from the Abnormal Security server."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "name": "",
+        "email": "",
+        "title": "",
+        "manager": ""
+      }
+    },
+    {
+      "operation": "get_employee_identity_analysis",
+      "annotation": "get_employee_identity_analysis",
+      "category": "investigation",
+      "title": "Get Employee Identity Analysis",
+      "description": "Retrieve employee identity analysis (Genome) data based on the email address that you have specified.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Email Address",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "emailAddress",
+          "tooltip": "Specify the email address of the employee whose identity analysis you want to retrieve from the Abnormal Security server.",
+          "description": "Specify the email address of the employee whose identity analysis you want to retrieve from the Abnormal Security server."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "data": [
+          {
+            "key": "",
+            "name": "",
+            "description": "",
+            "values": [
+              {
+                "value": "",
+                "percentage": "",
+                "total_count": ""
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "operation": "get_employee_login_info",
+      "annotation": "get_employee_login_info",
+      "category": "investigation",
+      "title": "Get Employee Login Information",
+      "description": "Get employee login information for last 30 days in csv format.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Email Address",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "emailAddress",
+          "tooltip": "Specify the email address of the employee whose login information you want to retrieve from the Abnormal Security server.",
+          "description": "Specify the email address of the employee whose login information you want to retrieve from the Abnormal Security server."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "@id": "",
+        "file": {
+          "id": "",
+          "@id": "",
+          "size": "",
+          "uuid": "",
+          "@type": "",
+          "assignee": "",
+          "filename": "",
+          "metadata": [],
+          "mimeType": "",
+          "thumbnail": "",
+          "uploadDate": ""
+        },
+        "name": "",
+        "type": "",
+        "uuid": "",
+        "@type": "",
+        "tasks": [],
+        "alerts": [],
+        "assets": [],
+        "owners": [],
+        "people": [],
+        "@context": "",
+        "assignee": "",
+        "comments": [],
+        "warrooms": [],
+        "incidents": [],
+        "createDate": "",
+        "createUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "indicators": [],
+        "modifyDate": "",
+        "modifyUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "recordTags": [],
+        "userOwners": [],
+        "workspaces": [],
+        "description": ""
+      }
+    },
+    {
+      "operation": "get_detection_reports",
+      "annotation": "get_detection_reports",
+      "category": "investigation",
+      "title": "Get Detection Reports",
+      "description": "Get a list of Detection 360° reports that you have submitted and view corresponding details for each case, including report summaries, statuses, message analyses, and more.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Inquiry Type",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "name": "inquiry_type",
+          "tooltip": "Specify whether to fetch missed attacks or false positives.",
+          "description": "Specify whether to fetch missed attacks or false positives.",
+          "options": [
+            "Missed Attack",
+            "False Positive"
+          ]
+        },
+        {
+          "title": "Start",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "start",
+          "tooltip": "The start of the datetime range, as an RFC 3339 timestamp, to fetch Detection 360° cases from. Defaults to 30 days before end.",
+          "description": "The start of the datetime range, as an RFC 3339 timestamp, to fetch Detection 360° cases from. Defaults to 30 days before end.",
+          "placeholder": "eg: 2022-01-01T00:00:00Z"
+        },
+        {
+          "title": "End",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "end",
+          "tooltip": "The end of the datetime range, as an RFC 3339 timestamp, to fetch Detection 360° cases from. Defaults to the current time.",
+          "description": "The end of the datetime range, as an RFC 3339 timestamp, to fetch Detection 360° cases from. Defaults to the current time.",
+          "placeholder": "eg: 2022-01-01T00:00:00Z"
+        },
+        {
+          "title": "Status",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "multiselect",
+          "name": "status",
+          "tooltip": "Only Detection 360° cases with these statuses will be retrieved. Defaults to all statuses.",
+          "description": "Only Detection 360° cases with these statuses will be retrieved. Defaults to all statuses.",
+          "options": [
+            "Unreviewed",
+            "Containing Attack",
+            "Improving Platform",
+            "Resolved",
+            "Correcting Judgement"
+          ]
+        }
+      ],
+      "output_schema": [
+        {
+          "id": "",
+          "inquiry_type": "",
+          "messages": {
+            "id": ""
+          },
+          "report": {
+            "analysis": "",
+            "root_causes": [
+              {
+                "name": "",
+                "description": ""
+              }
+            ]
+          },
+          "status": "",
+          "submission_datetime": "",
+          "submitted_by": {
+            "name": "",
+            "email": ""
+          }
+        }
+      ]
+    },
+    {
+      "operation": "check_case_action_status",
+      "annotation": "check_case_action_status",
+      "category": "investigation",
+      "title": "Check Case Action Status",
+      "description": "Check the status of an action requested on a case.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Case ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "caseId",
+          "tooltip": "Specify the case ID.",
+          "description": "Specify the case ID."
+        },
+        {
+          "title": "Action ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "actionId",
+          "tooltip": "Specify the UUID representing the action ID for a case.",
+          "description": "Specify the UUID representing the action ID for a case."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "description": ""
+      }
+    },
+    {
+      "operation": "check_threat_action_status",
+      "annotation": "check_threat_action_status",
+      "category": "investigation",
+      "title": "Check Threat Action Status",
+      "description": "Check the status of an action requested on a threat.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Threat ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "threatId",
+          "tooltip": "Specify the UUID of the threat.",
+          "description": "Specify the UUID of the threat."
+        },
+        {
+          "title": "Action ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "actionId",
+          "tooltip": "Specify the UUID representing the action ID for a threat.",
+          "description": "Specify the UUID representing the action ID for a threat."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "status": "",
+        "description": ""
+      }
+    },
+    {
+      "operation": "download_data_from_threat_log",
+      "annotation": "download_data_from_threat_log",
+      "category": "investigation",
+      "title": "Download Data from Threat Log",
+      "description": "Download data from Threat Log in .csv format.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Filter",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "filter",
+          "tooltip": "Specify the filter, currently the only key that is supported is receivedTime. Datetime string must follow this format YYYY-MM-DDTHH:MM:SSZ. Range is limited to 14 days.",
+          "description": "Specify the filter, currently the only key that is supported is receivedTime. Datetime string must follow this format YYYY-MM-DDTHH:MM:SSZ. Range is limited to 14 days."
+        },
+        {
+          "title": "Source",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "name": "source",
+          "tooltip": "Filters threats based on the source of detection. Default value is all.",
+          "description": "Filters threats based on the source of detection. Default value is all.",
+          "options": [
+            "All",
+            "Advanced"
+          ]
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "@id": "",
+        "file": {
+          "id": "",
+          "@id": "",
+          "size": "",
+          "uuid": "",
+          "@type": "",
+          "assignee": "",
+          "filename": "",
+          "metadata": [],
+          "mimeType": "",
+          "thumbnail": "",
+          "uploadDate": ""
+        },
+        "name": "",
+        "type": "",
+        "uuid": "",
+        "@type": "",
+        "tasks": [],
+        "alerts": [],
+        "assets": [],
+        "owners": [],
+        "people": [],
+        "@context": "",
+        "assignee": "",
+        "comments": [],
+        "warrooms": [],
+        "incidents": [],
+        "createDate": "",
+        "createUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "indicators": [],
+        "modifyDate": "",
+        "modifyUser": {
+          "id": "",
+          "@id": "",
+          "name": "",
+          "uuid": "",
+          "@type": "",
+          "avatar": "",
+          "userId": "",
+          "userType": "",
+          "createDate": "",
+          "createUser": "",
+          "modifyDate": "",
+          "modifyUser": ""
+        },
+        "recordTags": [],
+        "userOwners": [],
+        "workspaces": [],
+        "description": ""
+      }
+    },
+    {
+      "operation": "manage_threat",
+      "annotation": "manage_threat",
+      "category": "investigation",
+      "title": "Manage Threat",
+      "description": "Manage a Threat identified by Abnormal Security. Use this to remediate or unremediate a threat.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Threat ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "threatId",
+          "tooltip": "Specify the UUID of the threat.",
+          "description": "Specify the UUID of the threat."
+        },
+        {
+          "title": "Action",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "json",
+          "name": "action",
+          "tooltip": "Specify the action to perform on threat.",
+          "description": "Specify the action to perform on threat.",
+          "value": {
+            "action": "remediate"
+          }
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "actionId": "",
+        "statusUrl": ""
+      }
+    },
+    {
+      "operation": "manage_abnormal_case",
+      "annotation": "manage_abnormal_case",
+      "category": "investigation",
+      "title": "Manage Abnormal Case",
+      "description": "Manage an Abnormal Case. Use this to acknowledge or take another remediation action on a case.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Case ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "caseId",
+          "tooltip": "Specify the case ID.",
+          "description": "Specify the case ID."
+        },
+        {
+          "title": "Action",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "json",
+          "name": "action",
+          "tooltip": "Specify the action.",
+          "description": "Specify the action.",
+          "value": {
+            "action": "action_required"
+          }
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "actionId": "",
+        "statusUrl": ""
+      }
+    },
+    {
+      "operation": "get_case_analysis",
+      "annotation": "get_case_analysis",
+      "category": "investigation",
+      "title": "Get Case Analysis",
+      "description": "Provides the analysis and timeline details of a case.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Case ID",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "text",
+          "name": "caseId",
+          "tooltip": "Specify the case ID.",
+          "description": "Specify the case ID."
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {
+        "insights": [
+          {
+            "signal": "",
+            "description": ""
+          }
+        ],
+        "eventTimeline": [
+          {
+            "event_timestamp": "",
+            "category": "",
+            "title": "",
+            "field_labels": {},
+            "ip_address": "",
+            "location": {
+              "city": "",
+              "state": "",
+              "country": ""
+            },
+            "prev_location": {
+              "city": "",
+              "state": "",
+              "country": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "operation": "submit_false_positive_report",
+      "annotation": "submit_false_positive_report",
+      "category": "investigation",
+      "title": "Submit a Missed Attack or False Positive Report",
+      "description": "Use this to report a missed attack or a false positive judgement by Abnormal Security. We use this data to improve our models, and also give customers transparency into the frequency of Missed Attacks and False Positives.",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "False Positive Report Data",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "json",
+          "name": "report_data",
+          "tooltip": "Specify the missed attack or false positive report data.",
+          "description": "Specify the missed attack or false positive report data.",
+          "value": {
+            "report_type": "false-positive",
+            "received_date": "2020/02/01",
+            "description": "Alice reported this email was missing from their inbox.",
+            "portal_link": "https://portal.abnormalsecurity.com/home/threat-center/remediation-history/1234567890"
+          }
+        },
+        {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        }
+      ],
+      "output_schema": {"Details": "Report was submitted successfully."}
+    }
+  ]
+}
