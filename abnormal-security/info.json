@@ -63,26 +63,6 @@
           "placeholder": "receivedTime gte 2020-01-01T01:01:01Z lte 2021-12-01T01:01:01Z"
         },
         {
-          "title": "Page Size",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "type": "integer",
-          "name": "pageSize",
-          "tooltip": "Specify the number of threats on each page. Each page of data will have at most pageSize threats. Has no effect if filter is not specified. Default value is 100.",
-          "description": "Specify the number of threats on each page. Each page of data will have at most pageSize threats. Has no effect if filter is not specified. Default value is 100."
-        },
-        {
-          "title": "Page Number",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "type": "integer",
-          "name": "pageNumber",
-          "tooltip": "1-indexed page number to get a particular page of threats. Has no effect if filter is not specified. Default value is 1.",
-          "description": "1-indexed page number to get a particular page of threats. Has no effect if filter is not specified. Default value is 1."
-        },
-        {
           "title": "Source",
           "required": false,
           "visible": true,
@@ -232,6 +212,26 @@
           "tooltip": "Returns test data if set to True.",
           "description": "Returns test data if set to True.",
           "value": false
+        },
+        {
+          "title": "Page Size",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageSize",
+          "tooltip": "Specify the number of threats on each page. Each page of data will have at most pageSize threats. Has no effect if filter is not specified. Default value is 100.",
+          "description": "Specify the number of threats on each page. Each page of data will have at most pageSize threats. Has no effect if filter is not specified. Default value is 100."
+        },
+        {
+          "title": "Page Number",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageNumber",
+          "tooltip": "1-indexed page number to get a particular page of threats. Has no effect if filter is not specified. Default value is 1.",
+          "description": "1-indexed page number to get a particular page of threats. Has no effect if filter is not specified. Default value is 1."
         }
       ],
       "output_schema": {
@@ -248,26 +248,6 @@
       "description": "Retrieves details of threat based on the parameters that you have specified.",
       "enabled": true,
       "parameters": [
-        {
-          "title": "Page Size",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "type": "integer",
-          "name": "pageSize",
-          "tooltip": "Number of messages corresponding to threat in each page. Each page of data will have at most pageSize message. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 100.",
-          "description": "Number of messages corresponding to threat in each page. Each page of data will have at most pageSize message. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 100."
-        },
-        {
-          "title": "Page Number",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "type": "integer",
-          "name": "pageNumber",
-          "tooltip": "1-indexed page number to get a particular page of threat messages. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 1.",
-          "description": "1-indexed page number to get a particular page of threat messages. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 1."
-        },
         {
           "title": "Threat ID",
           "required": true,
@@ -288,6 +268,26 @@
           "tooltip": "Returns test data if set to True.",
           "description": "Returns test data if set to True.",
           "value": false
+        },
+        {
+          "title": "Page Size",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageSize",
+          "tooltip": "Number of messages corresponding to threat in each page. Each page of data will have at most pageSize message. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 100.",
+          "description": "Number of messages corresponding to threat in each page. Each page of data will have at most pageSize message. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 100."
+        },
+        {
+          "title": "Page Number",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "integer",
+          "name": "pageNumber",
+          "tooltip": "1-indexed page number to get a particular page of threat messages. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 1.",
+          "description": "1-indexed page number to get a particular page of threat messages. Currently ignored, only 10 results for messages will show. Supported will be added in a future version. Total results returned cannot exceed 10000 due to database limitations. Default value is 1."
         }
       ],
       "output_schema": {
@@ -433,6 +433,17 @@
           "placeholder": "lastModifiedTime gte 2020-01-01T01:01:01Z lte 2021-12-01T01:01:01Z"
         },
         {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        },
+        {
           "title": "Page Size",
           "required": false,
           "visible": true,
@@ -451,17 +462,6 @@
           "name": "pageNumber",
           "tooltip": "1-indexed page number to get a particular page of cases. Has no effect if filter is not specified. Default value is 1.",
           "description": "1-indexed page number to get a particular page of cases. Has no effect if filter is not specified. Default value is 1."
-        },
-        {
-          "title": "Mock Data",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "type": "checkbox",
-          "name": "mock-data",
-          "tooltip": "Returns test data if set to True.",
-          "description": "Returns test data if set to True.",
-          "value": false
         }
       ],
       "output_schema": {
@@ -638,6 +638,17 @@
           ]
         },
         {
+          "title": "Mock Data",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "checkbox",
+          "name": "mock-data",
+          "tooltip": "Returns test data if set to True.",
+          "description": "Returns test data if set to True.",
+          "value": false
+        },
+        {
           "title": "Page Size",
           "required": false,
           "visible": true,
@@ -656,17 +667,6 @@
           "name": "pageNumber",
           "tooltip": "1-indexed page number to get a particular page of abuse campaigns. Has no effect if filter is not specified. Default value is 1.",
           "description": "1-indexed page number to get a particular page of abuse campaigns. Has no effect if filter is not specified. Default value is 1."
-        },
-        {
-          "title": "Mock Data",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "type": "checkbox",
-          "name": "mock-data",
-          "tooltip": "Returns test data if set to True.",
-          "description": "Returns test data if set to True.",
-          "value": false
         }
       ],
       "output_schema": {
