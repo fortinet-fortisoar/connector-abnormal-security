@@ -554,8 +554,8 @@
           "editable": true,
           "type": "text",
           "name": "filter",
-          "tooltip": "Specify the criteria to filter the threats received. Currently, the only key that Abnormal Security supports is lastReportedTime\ufffc<![if !supportAnnotations]>[OK1]<![endif]> <![if !supportAnnotations]>[AS2]<![endif]> \ufffcSpecify gte (greater than or equal to) or lte (less than or equal to), with a datetime string in YYYY-MM-DDTHH:MM:SSZ format. For example, lastReportedTime<![if !supportAnnotations]>[OK3]<![endif]> \ufffcgte 2020-01-01T01:01:01Z lte 2021-12-01T01:01:01Z",
-          "description": "Specify the criteria to filter the threats received. Currently, the only key that Abnormal Security supports is lastReportedTime\ufffc<![if !supportAnnotations]>[OK1]<![endif]> <![if !supportAnnotations]>[AS2]<![endif]> \ufffcSpecify gte (greater than or equal to) or lte (less than or equal to), with a datetime string in YYYY-MM-DDTHH:MM:SSZ format. For example, lastReportedTime<![if !supportAnnotations]>[OK3]<![endif]> \ufffcgte 2020-01-01T01:01:01Z lte 2021-12-01T01:01:01Z",
+          "tooltip": "Specify the criteria to filter the threats received. Currently, the only key that Abnormal Security supports is lastReportedTime. Specify gte (greater than or equal to) or lte (less than or equal to), with a datetime string in YYYY-MM-DDTHH:MM:SSZ format. For example, lastReportedTime gte 2020-01-01T01:01:01Z lte 2021-12-01T01:01:01Z",
+          "description": "Specify the criteria to filter the threats received. Currently, the only key that Abnormal Security supports is lastReportedTime. Specify gte (greater than or equal to) or lte (less than or equal to), with a datetime string in YYYY-MM-DDTHH:MM:SSZ format. For example, lastReportedTime gte 2020-01-01T01:01:01Z lte 2021-12-01T01:01:01Z",
           "placeholder": "lastReportedTime gte 2020-01-01T00:00:00Z lte 2021-12-01T00:00:00Z"
         },
         {
@@ -565,8 +565,8 @@
           "editable": true,
           "type": "text",
           "name": "sender",
-          "tooltip": "Specify a name or an email address of the sender to filter threats.<![if !supportAnnotations]>[OK4]<![endif]> <![if !supportAnnotations]>[AS5]<![endif]>",
-          "description": "Specify a name or an email address of the sender to filter threats.<![if !supportAnnotations]>[OK4]<![endif]> <![if !supportAnnotations]>[AS5]<![endif]>"
+          "tooltip": "Specify a name or an email address of the sender to filter threats.",
+          "description": "Specify a name or an email address of the sender to filter threats."
         },
         {
           "title": "Recipient",
@@ -1362,7 +1362,7 @@
           "editable": true,
           "type": "json",
           "name": "report_data",
-          "tooltip": "Specify the missed attack or false positive report data. The report body is sent in a JSON format. For example: { \"description\": \"Alice reported this email was missing from their inbox.\", \"portal_link\": \"https://portal.abnormalsecurity.com/home/threat-center/remediation-history/1234567890\", \"report_type\": \"false-positive\", \"received_date\": \"2020/02/01\" }",
+          "tooltip": "Specify the missed attack or false positive report data. The report body is sent in a JSON format.",
           "description": "Specify the missed attack or false positive report data. The report body is sent in a JSON format. For example: { \"description\": \"Alice reported this email was missing from their inbox.\", \"portal_link\": \"https://portal.abnormalsecurity.com/home/threat-center/remediation-history/1234567890\", \"report_type\": \"false-positive\", \"received_date\": \"2020/02/01\" }",
           "value": {
             "report_type": "false-positive",
